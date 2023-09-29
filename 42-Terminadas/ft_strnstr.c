@@ -6,30 +6,18 @@
 /*   By: descamil <descamil@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:01:54 by descamil          #+#    #+#             */
-/*   Updated: 2023/09/29 15:12:39 by descamil         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:57:52 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-
-size_t	ft_strlen(const char *c)
-{
-	size_t	k;
-
-	k = 0;
-	while (c[k] != '\0')
-		k++;
-	return (k);
-}
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	len_s2;
-
+	
 	i = 0;
 	j = 0;
-	len_s2 = ft_strlen(s2);
 	if ((s1 == NULL && s2 == NULL) || (s2 == NULL))
 		return ((char *)s1);
 	while (i < len && s1[i] != '\0')
