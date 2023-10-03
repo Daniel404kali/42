@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: descamil <descamil@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 16:34:35 by descamil          #+#    #+#             */
-/*   Updated: 2023/10/03 16:56:46 by descamil         ###   ########.fr       */
+/*   Created: 2023/10/03 17:20:42 by descamil          #+#    #+#             */
+/*   Updated: 2023/10/03 17:45:21 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*sub;
+	size_t	n;
+	char	*ptr;
+	size_t	i;
+	size_t	j;
 
-	if (s == NULL || ft_strlen(s) <= start || len == 0)
-	{
-		sub = malloc(1);
-		if (sub == NULL)
-			return (NULL);
-		*sub = '\0';
-		return (sub);
-	}
-	else if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	sub = malloc(len + 1);
-	if (sub == NULL)
+	i = 0;
+	j = 0;
+	n = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	ptr = malloc(n + 1);
+	if (ptr == NULL)
 		return (NULL);
-	ft_strlcpy(sub, s + start, len + 1);
-	return (sub);
+	while ((char)s1[i] != '\0')
+	{	
+		ptr[i] = (char)s1[i];
+		i++;
+	}
+	while ((char)s2[j] != '\0')
+	{
+		ptr[i] = (char)s2[j];
+		i++;
+		j++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

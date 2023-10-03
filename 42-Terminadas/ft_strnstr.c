@@ -6,35 +6,48 @@
 /*   By: descamil <descamil@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:01:54 by descamil          #+#    #+#             */
-/*   Updated: 2023/09/29 18:57:52 by descamil         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:20:48 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
+
+size_t	ft_strlen(const char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
+}
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	
+	size_t	k;
+
 	i = 0;
 	j = 0;
-	if ((s1 == NULL && s2 == NULL) || (s2 == NULL))
+	if (*s2 == '\0')
 		return ((char *)s1);
-	while (i < len && s1[i] != '\0')
+	while (s1[i] != '\0' && i < len)
 	{
-		while (s1[i] == s2[j] && i < len)
+		if (s1[i] == s2[j])
 		{
-			j++;
-			i++;
-			if (i > len)
-				return (0);
-			if (s2[j + 1] == '\0')
-				return ((char *)(&s1[i - len_s2] + 1));
+			k = i;
+			while (s1[k] == s2[j] && s2[j] != '\0' && (k < len))
+			{
+				k++;
+				j++;
+				if (s2[j] == '\0')
+					return ((char *)(&s1[i]));
+			}
+			j = 0;
 		}
 		i++;
-		j = 0;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*

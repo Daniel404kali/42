@@ -21,7 +21,20 @@ SOURCE_FILES =  ft_atoi.c \
 				ft_toupper.c \
 				ft_calloc.c \
 				ft_strdup.c \
-				ft_substr.c
+				ft_substr.c \
+				ft_strjoin.c \
+				ft_strtrim.c
+
+# BONUS_FILE =	ft_lstnew.c \
+				ft_lstadd_front \
+				ft_lstsize.c \
+				ft_lstlast \
+				ft_lstadd_back \
+				ft_lstdelone \
+				ft_lstclear \
+				ft_lsttiter \
+				ft_lstiter \
+				ft_stdmap \
 
 OBJECTS = $(SOURCE_FILES:.c=.o)
 
