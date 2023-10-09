@@ -6,21 +6,11 @@
 /*   By: descamil <descamil@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:44:55 by descamil          #+#    #+#             */
-/*   Updated: 2023/09/28 11:38:48 by descamil         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:59:45 by descamil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-#include <string.h>
-
-size_t	ft_strlen(char *c)
-{
-	size_t	i;
-
-	i = 0;
-	while (c[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
